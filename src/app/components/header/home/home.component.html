@@ -1,0 +1,46 @@
+<!-- <main>
+  <section>
+    <ul>
+      @if(items.length == 0){
+      <li>
+       No entries have made
+        </li>
+      }
+      @for(item of items ; track item.id){
+      <li [routerLink]="['/view-snip',item.id]" routerLinkActive="router-link-active">
+          {{item.title}}
+      </li>
+      }
+    </ul>
+  </section>
+</main> -->
+
+<main>
+  <section>
+    @if(loading){
+      <div class="loading-indicator">
+        Loading, please wait...
+      </div>
+    }
+    @if(!loading && items.length === 0){ <div  class="no-entries">
+      <p>No entries have been made yet. <a [routerLink]="['/create-snip']">Create one now!</a></p>
+    </div>}
+   
+    @if(!loading && items.length > 0){  
+      <ul class="snip-list">
+        @for(item of items ; track item.id){
+          <li [routerLink]="['/view-snip',item.id]" routerLinkActive="router-link-active">
+              {{item.title}}
+            </li>  @if(authService.isUser()){
+              <button   (click)="delete(item.id)" class="noselect"><span class="text">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+            }
+            <!-- <button (click)="delete(item.id)">Delete</button> -->
+          }
+      <!-- <li *ngFor="let item of items; trackBy: trackById" 
+          [routerLink]="['/view-snip', item.id]" 
+          routerLinkActive="router-link-active">
+        {{item.title}}
+      </li> -->
+    </ul>}
+  </section>
+</main>

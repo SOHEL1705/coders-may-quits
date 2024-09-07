@@ -1,0 +1,108 @@
+// Variables
+$font-stack: 'Helvetica Neue', Arial, sans-serif;
+$primary-color: rgb(215, 32, 0);
+$secondary-color: #555;
+$background-color:tomato;
+$header-bg-color: #e0e0e0;
+$heading-color: #222;
+$border-color: #ddd;
+$max-width: 1200px;
+
+// Mixin for responsive text
+@mixin responsive-text($min-font-size, $max-font-size, $min-width, $max-width) {
+  font-size: $min-font-size;
+  
+  @media (min-width: $min-width) {
+    font-size: calc(#{$min-font-size} + (#{$max-font-size} - #{$min-font-size}) * ((100vw - #{$min-width}) / (#{$max-width} - #{$min-width})));
+  }
+}
+
+// Main Styles
+main {
+  // background-color: $background-color;
+  font-family: $font-stack;
+  color: $primary-color;
+  padding: 2rem;
+  
+  section.about {
+    max-width: $max-width;
+    background: linear-gradient(45deg, #fbb, #fec);
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      @include responsive-text(1.75rem, 2.5rem, 320px, $max-width);
+      color: $heading-color;
+      color: tomato;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      border-bottom: 2px solid $header-bg-color;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      color: $secondary-color;
+      font-size: 1rem;
+
+      strong {
+        color: $primary-color;
+      }
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      li {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        color: $secondary-color;
+        
+        strong {
+          color: $primary-color;
+        }
+      }
+    }
+
+    // Responsive Design
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+
+      h2 {
+        @include responsive-text(1.5rem, 2rem, 320px, 768px);
+      }
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      ul {
+        padding-left: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 1rem;
+
+      h2 {
+        @include responsive-text(1.25rem, 1.75rem, 320px, 480px);
+      }
+
+      p {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+      }
+
+      ul {
+        padding-left: 1rem;
+      }
+    }
+  }
+}

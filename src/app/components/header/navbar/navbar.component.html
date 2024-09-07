@@ -1,0 +1,20 @@
+<div class="container">
+
+  <nav class="skew-menu">
+    <div class="heading">
+    <div class="heading-text"><a routerLink="/" routerLinkActive="active">Code$n!p</a>
+  </div>
+  </div>
+  <ul>
+    <li><a routerLink="/create-snip" routerLinkActive="active">Create Snipped</a></li>
+    <!-- <li><a routerLink="/view-snip" routerLinkActive="active">Snipped</a></li> -->
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    @if(authService.isUser()){
+      <li (click)="authService.logout()"><a routerLink="/signup" routerLinkActive="active">Logout</a></li>
+    }@else{
+      <li><a routerLink="/signup" routerLinkActive="active">Register</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    }
+  </ul>
+</nav>
+</div>

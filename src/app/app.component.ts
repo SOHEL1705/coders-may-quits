@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { NavbarComponent } from "./components/header/navbar/navbar.component";
+import { firebaseConfig } from '../firebase.config';
+import { initializeApp } from "firebase/app";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'coders-may-quits';
+ constructor(){
+  initializeApp(firebaseConfig);
+ }
 }

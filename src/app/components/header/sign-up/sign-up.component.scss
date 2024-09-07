@@ -1,0 +1,182 @@
+// Color variables
+$primary-color: #0074d9;
+$secondary-color: #ff4136;
+$button-bg: #0074d9;
+$button-bg2: tomato;
+$button-hover-bg: darken($button-bg, 10%);
+$button-hover-bg2: darken($button-bg2, 10%);
+$border-color: #ccc;
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+$background-gradient: linear-gradient(45deg, #fbb, #fec);
+$background-gradient2: linear-gradient(60deg,  rgba(255, 187, 187, 0), rgb(122, 4, 0));
+
+// Popup container and background
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  position: relative;
+  padding: 20px;
+  
+  .popup-content {
+    background: $background-gradient;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px $box-shadow-color;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    flex-direction: row;
+
+    // Image container styling
+    .image-container {
+      // background: $background-gradient2;
+      border-radius: 40px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      img {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+    }
+.mini-msg{
+  font-family: Helvetica;
+  margin: 0 3px;
+  color: red;
+  font-size: 12px;
+}
+    // Text and form section styling
+    .text-container {
+      flex: 1.2;
+      margin-right: 20px;
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+
+      // Form styling
+      form {
+        display: flex;
+        flex-direction: column;
+
+        input[type="email"],input[type="password"] {
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid $border-color;
+          border-radius: 4px;
+          font-size: 14px;
+        }
+
+        .submit-button {
+          padding: 10px;
+          background-color: $button-bg;
+          border: none;
+          border-radius: 4px;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: $button-hover-bg;
+          }
+        }
+        .reset-button {
+          padding: 10px;
+          background-color: $button-bg2;
+          border: none;
+          border-radius: 4px;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: $button-hover-bg2;
+          }
+        }
+        .submit-button:disabled{
+          cursor: not-allowed;
+          padding: 10px;
+          border: none;
+          border-radius: 4px;
+          color: white;
+          transition: background-color 0.3s ease;
+          background-color: gray;
+        }
+        small {
+          margin-top: 10px;
+          font-size: 12px;
+          color: gray;
+        }
+      }
+    }
+
+   
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  .popup {
+    .popup-content {
+      flex-direction: column; // Stack the image and form vertically
+      align-items: center;
+
+      .image-container {
+        margin-bottom: 20px;
+
+      }
+
+      .text-container {
+        margin-left: 0; // Remove left margin in smaller screens
+        text-align: center;
+
+        form {
+          input[type="email"] {
+            font-size: 16px; // Increase input font size for mobile
+          }
+
+          .submit-button {
+            font-size: 16px; // Increase button font size for mobile
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .popup {
+    .popup-content {
+      padding: 15px; // Reduce padding for extra small screens
+
+      .text-container {
+        h2 {
+          font-size: 1.2rem; // Decrease heading size for smaller screens
+        }
+
+        p {
+          font-size: 12px; // Decrease paragraph size for smaller screens
+        }
+
+        form {
+          input[type="email"] {
+            padding: 8px; // Decrease input padding for smaller screens
+          }
+
+          .submit-button {
+            padding: 8px; // Decrease button padding for smaller screens
+          }
+        }
+      }
+    }
+  }
+}

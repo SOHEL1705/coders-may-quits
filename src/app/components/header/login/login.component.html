@@ -1,0 +1,35 @@
+<div class="popup">
+  <div class="popup-content">
+    <div class="image-container">
+      <img src="sosSignup-removebg-preview.png" alt="Design items" />
+    </div>
+    <div class="text-container">
+      <h2>Your Ultimate Destination for Storing, Organizing, and Sharing Code Snippets Effortlessly.</h2>
+      <p>
+        Sign up to CodeSnip and streamline your code management with easy storage and instant access.
+      </p>
+      <form [formGroup]="loginFrom">
+        <span [hidden]="email.valid || email.untouched" class="mini-msg">Enter valid email</span>
+        <input 
+        type="email" 
+        [formControl]="email"
+        placeholder="Email address" 
+        />
+        <span [hidden]="password.valid || password.untouched" class="mini-msg">Enter valid password</span>
+        <input type="password" 
+        [formControl]="password"
+        placeholder="Password"
+        />
+        <button class="submit-button"
+        [disabled]="loginFrom.invalid"
+        (click)="login()"
+        >Submit</button>
+        <hr>
+        <button 
+        (click)="reset()"
+        class="reset-button">Reset</button>
+        <small>No spams included</small>
+      </form>
+    </div>
+  </div>
+</div>

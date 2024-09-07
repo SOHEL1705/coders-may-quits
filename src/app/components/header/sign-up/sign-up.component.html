@@ -1,0 +1,44 @@
+<div class="popup">
+  <div class="popup-content">
+    
+    <div class="text-container">
+      <h2>Your Ultimate Destination for Storing, Organizing, and Sharing Code Snippets Effortlessly.</h2>
+      <p>
+        Sign in to CodeSnip and streamline your code management with easy storage and instant access.
+      </p>
+      <form #formRegister="ngForm">
+        <span [hidden]="email.valid || email.untouched" class="mini-msg">Enter valid email</span>
+        <input 
+        type="email" 
+        name="email"
+        required
+        pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        ngModel
+        #email="ngModel"
+        placeholder="Email address" 
+        />
+        <span [hidden]="password.valid || password.untouched" class="mini-msg">Enter valid password</span>
+        <input type="password" 
+        name="password"
+        minlength="8"
+        placeholder="Password"
+        required
+        ngModel
+        #password="ngModel"
+        />
+        <button class="submit-button"
+        [disabled]="formRegister.invalid"
+        (click)="register(formRegister)"
+        >signup</button>
+        <hr>
+        <button 
+        (click)="reset(formRegister)"
+        class="reset-button">Reset</button>
+        <small>No spams included</small>
+      </form>
+    </div>
+    <div class="image-container">
+      <img src="Signin.png" alt="Signin image" />
+    </div>  
+  </div>
+</div>

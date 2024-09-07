@@ -1,0 +1,119 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  margin-top: 100px;
+  // background-color: #f4f4f9;
+
+  section.about {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    background: linear-gradient(45deg, #fbb, #fec);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.591);
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .mini-msg {
+        color: #010101;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+      }
+
+      input,
+      textarea {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+
+        &:focus {
+          border-color: #007bff;
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      .submit-button,
+      .reset-button {
+        padding: 0.75rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.6;
+        }
+      }
+
+      .submit-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+
+        &:hover:not(:disabled) {
+          background-color: #0056b3;
+        }
+      }
+
+      .reset-button {
+        background-color: #f12c1a;
+        color: #000;
+        border: 1px solid #f12c1a;
+
+        &:hover {
+          background-color: #600800;
+          color: #ffffff;
+          border: 1px solid #600800;
+        }
+      }
+    }
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  section.about {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  form input,
+  form textarea,
+  .submit-button,
+  .reset-button {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section.about {
+    padding: 0.5rem;
+  }
+
+  form input,
+  form textarea {
+    font-size: 0.75rem;
+  }
+
+  .submit-button,
+  .reset-button {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+}

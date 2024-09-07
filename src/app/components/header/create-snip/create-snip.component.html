@@ -1,0 +1,22 @@
+<main>
+  <section class="about">
+    <h1>Enter </h1>
+    <form [formGroup]="snippedFrom">
+      <span [hidden]="title.valid || title.untouched" class="mini-msg">Enter title</span>
+      <input 
+  type="text" 
+  [formControl]="title"
+  placeholder="Title" 
+  />
+  <span [hidden]="code.valid || code.untouched" class="mini-msg">Enter code</span>
+  <textarea type="text" 
+  [formControl]="code"
+  placeholder="code Snipped"
+  ></textarea>
+  <button class="submit-button"
+  [disabled]="snippedFrom.invalid"
+  (click)="save()"
+  >Create</button>
+</form>
+</section>
+</main>

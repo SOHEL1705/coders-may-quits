@@ -1,0 +1,186 @@
+$radius: 10px;
+$skew: 25deg;
+$main-color: tomato;
+$small-screen: 768px; // Adjust this breakpoint as needed
+$medium-screen: 1024px; // Adjust this breakpoint as needed
+
+.container {
+  margin: 0 20px 20px 20px;
+  border-radius: $radius;
+}
+
+.skew-menu {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .heading {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transform: skew($skew);
+
+    .heading-text {
+      background: #fff;
+      padding: 0 50px;
+      margin: 0;
+      float: left;
+      border-right: 1px solid #eee;
+      text-transform: uppercase;
+      color: #555;
+      font-weight: bolder;
+      transition: all 0.3s linear;
+      border-radius: $radius $radius;
+
+      a {
+        display: block;
+        padding: 1em 2em;
+        color: inherit;
+        text-decoration: none;
+        transform: skew(-$skew);
+      }
+    }
+  }
+
+  ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transform: skew(-$skew);
+
+    li {
+      background: #fff;
+      float: left;
+      border-right: 1px solid #eee;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+      color: #555;
+      font-weight: bolder;
+      transition: all 0.3s linear;
+
+      .active {
+        color: tomato;
+        transition: all 0.3s linear;
+      }
+
+      &:first-child {
+        border-radius: $radius 0 0 $radius;
+      }
+
+      &:last-child {
+        border-right: none;
+        border-radius: 0 $radius $radius 0;
+      }
+
+      &:hover {
+        background: #eee;
+        color: $main-color;
+      }
+
+      a {
+        display: block;
+        padding: 1em 2em;
+        color: inherit;
+        text-decoration: none;
+        transform: skew($skew);
+      }
+    }
+  }
+}
+
+/* Remove skew effect on medium screens */
+@media (max-width: $medium-screen) {
+  .skew-menu {
+    .heading {
+      transform: none;
+    }
+
+    .heading-text {
+      padding: 0 30px;
+      transform: none;
+
+      a {
+        transform: none;
+      }
+    }
+
+    ul {
+      transform: none;
+
+      li {
+        transform: none;
+        padding: 0.5em 1em;
+
+        a {
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+/* Remove skew effect on small screens */
+@media (max-width: $small-screen) {
+  .skew-menu {
+    flex-direction: column;
+    align-items: stretch;
+
+    .heading {
+      transform: none;
+
+      .heading-text {
+        // transform: none;
+        // padding: 0 20px;
+        float: none;
+        background: linear-gradient(45deg, #fbb, #fec);;
+        display: block;
+        margin: 0;
+        border-right: none;
+        border-radius: 20px 20px 0 0 ;
+        transform: none;
+        
+
+        a {
+          font-size: 30px;
+          padding: 1em;
+          display: inline-block;
+          width: 100%;
+          transform: none;
+        }
+      }
+    }
+
+    ul {
+      display: block;
+      text-align: center;
+      transform: none;
+
+      li {
+        float: none;
+        display: block;
+        margin: 0;
+        border-right: none;
+        border-radius: 0;
+        transform: none;
+
+        &:first-child {
+          border-radius: 0;
+        }
+
+        &:last-child {
+          border-radius:0 0 20px 20px  ;
+        }
+
+        a {
+          padding: 1em;
+          display: inline-block;
+          width: 100%;
+          transform: none;
+        }
+      }
+    }
+  }
+}
