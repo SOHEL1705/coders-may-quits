@@ -18,12 +18,13 @@ import { Router } from '@angular/router';
 export class CreateSnipComponent {
   constructor(private dbService: DatabaseService,private router : Router) {}
   title = new FormControl('', [Validators.required]);
-
   code = new FormControl('', [Validators.required]);
+  desc = new FormControl('', [Validators.required]);
 
   snippedFrom = new FormGroup({
     title: this.title,
     code: this.code,
+    desc: this.desc,
   });
   // async delete() {
   //   await this.dbService.deleteSnippet()  }

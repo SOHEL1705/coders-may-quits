@@ -1,8 +1,16 @@
 <article class="snippet-container">
   <header class="snippet-header">
-    <h2 class="snippet-title">{{ codesSnipppet.title }}</h2>
+    <label class="snip-label"> Title </label>
+    <p><span class="snippet-title">{{ codesSnipppet.title }}</span></p>
   </header>
   <section class="snippet-body">
+    <label class="snip-label"> Description </label>
+    <div class="desc-block">
+      <code>{{ codesSnipppet.desc }}</code>
+    </div>
+  </section>
+  <section class="snippet-body">
+    <label class="snip-label"> Snipped </label>
     <pre class="code-block">
       <code>{{ codesSnipppet.code }}</code>
     </pre>

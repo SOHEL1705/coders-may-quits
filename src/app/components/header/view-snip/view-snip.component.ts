@@ -12,6 +12,7 @@ import { DatabaseService } from '../../../services/database.service';
 export class ViewSnipComponent implements OnInit {
   codesSnipppet = {
     title : '',
+    desc : '',
     code : ''
   }
   constructor(private dbService: DatabaseService,private router : Router,private route : ActivatedRoute) {}

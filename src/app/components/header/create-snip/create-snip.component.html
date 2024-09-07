@@ -14,6 +14,11 @@
   <div class="container-mini-msg">
     <label>Code</label><span [hidden]="code.valid || code.untouched" class="mini-msg">Enter code</span>
   </div>
+
+  <textarea type="text" 
+  [formControl]="desc"
+  placeholder="Description About Code..."
+  ></textarea>
   <textarea type="text" 
   [formControl]="code"
   placeholder="code Snipped"
