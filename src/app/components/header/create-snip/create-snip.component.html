@@ -1,14 +1,19 @@
 <main>
   <section class="about">
-    <h1>Enter </h1>
+    <h1>Enter snippets </h1>
     <form [formGroup]="snippedFrom">
-      <span [hidden]="title.valid || title.untouched" class="mini-msg">Enter title</span>
+      <div class="container-mini-msg">
+        <label>Title</label>
+        <span [hidden]="title.valid || title.untouched" class="mini-msg">Enter title</span>
+      </div>
       <input 
   type="text" 
   [formControl]="title"
   placeholder="Title" 
   />
-  <span [hidden]="code.valid || code.untouched" class="mini-msg">Enter code</span>
+  <div class="container-mini-msg">
+    <label>Code</label><span [hidden]="code.valid || code.untouched" class="mini-msg">Enter code</span>
+  </div>
   <textarea type="text" 
   [formControl]="code"
   placeholder="code Snipped"

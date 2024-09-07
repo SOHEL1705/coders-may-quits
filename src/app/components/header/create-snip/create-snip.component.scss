@@ -1,42 +1,75 @@
+// Variables for colors and breakpoints
+$primary-color: #007bff;
+$secondary-color: #f12c1a;
+$background-gradient: linear-gradient(45deg, #fbb, #fec);
+$font-color: #010101;
+$input-border-color: #ccc;
+$hover-primary: #0056b3;
+$hover-secondary: #600800;
+
+$mobile: 480px;
+$tablet: 768px;
+
 main {
   display: flex;
-  justify-content: center;
+  justify-content: center;  // Align to the left side
   align-items: center;
-  // height: 100vh;
   margin-top: 100px;
-  // background-color: #f4f4f9;
+  padding-left: 20px;
 
   section.about {
     width: 100%;
     max-width: 600px;
     padding: 2rem;
-    background: linear-gradient(45deg, #fbb, #fec);
+    background: $background-gradient;
     border-radius: 12px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     border: 2px solid rgba(255, 255, 255, 0.591);
 
+    // H1 Styling
+    h1 {
+      font-family: monospace;
+      font-size: 2rem;
+      color: $font-color;
+      text-align: left;  // Align text to the left
+      margin-bottom: 1rem;
+    }
+
     form {
       display: flex;
       flex-direction: column;
 
-      .mini-msg {
-        color: #010101;
-        font-size: 0.875rem;
+      // Mini-message container
+      .container-mini-msg {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 0.5rem;
+
+        label {
+          font-size: 1rem;
+          color: $font-color;
+          font-weight: bold;
+        }
+
+        .mini-msg {
+          color: $secondary-color;
+          font-size: 0.875rem;
+        }
       }
 
       input,
       textarea {
         padding: 0.75rem;
         margin-bottom: 1rem;
-        border: 1px solid #ccc;
+        border: 1px solid $input-border-color;
         border-radius: 8px;
         font-size: 1rem;
         outline: none;
 
         &:focus {
-          border-color: #007bff;
+          border-color: $primary-color;
           box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
         }
       }
@@ -60,60 +93,105 @@ main {
         }
       }
 
+      // Submit Button
       .submit-button {
-        background-color: #007bff;
+        background-color: $primary-color;
         color: #fff;
         border: none;
 
         &:hover:not(:disabled) {
-          background-color: #0056b3;
+          background-color: $hover-primary;
         }
       }
 
+      // Reset Button
       .reset-button {
-        background-color: #f12c1a;
+        background-color: $secondary-color;
         color: #000;
-        border: 1px solid #f12c1a;
+        border: 1px solid $secondary-color;
 
         &:hover {
-          background-color: #600800;
-          color: #ffffff;
-          border: 1px solid #600800;
+          background-color: $hover-secondary;
+          color: #fff;
+          border: 1px solid $hover-secondary;
         }
       }
     }
   }
 }
 
-// Media queries for responsiveness
-@media (max-width: 768px) {
-  section.about {
-    padding: 1rem;
-    max-width: 100%;
+// Tablet Breakpoint
+@media (max-width: $tablet) {
+  main {
+    padding-left: 10px;
   }
 
-  form input,
-  form textarea,
-  .submit-button,
-  .reset-button {
-    font-size: 0.875rem;
-    padding: 0.5rem;
+  section.about {
+    padding: 1.5rem;
+    max-width: 100%;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    form {
+      input,
+      textarea,
+      .submit-button,
+      .reset-button {
+        font-size: 0.875rem;
+        padding: 0.6rem;
+      }
+
+      .container-mini-msg {
+        label {
+          font-size: 0.875rem;
+        }
+
+        .mini-msg {
+          font-size: 0.75rem;
+        }
+      }
+    }
   }
 }
 
-@media (max-width: 480px) {
+// Mobile Breakpoint
+@media (max-width: $mobile) {
+  main {
+    padding-left: 5px;
+  }
+
   section.about {
-    padding: 0.5rem;
-  }
+    padding: 1rem;
+    
+    h1 {
+      font-size: 1.5rem;
+      text-align: left;
+    }
 
-  form input,
-  form textarea {
-    font-size: 0.75rem;
-  }
+    form {
+      input,
+      textarea {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+      }
 
-  .submit-button,
-  .reset-button {
-    padding: 0.5rem;
-    font-size: 0.75rem;
+      .submit-button,
+      .reset-button {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      .container-mini-msg {
+        label {
+          font-size: 0.75rem;
+        }
+
+        .mini-msg {
+          font-size: 0.65rem;
+        }
+      }
+    }
   }
 }
