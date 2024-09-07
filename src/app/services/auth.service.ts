@@ -17,27 +17,31 @@ import {
 export class AuthService {
   private auth: Auth;
   private uid?: string;
-
+  private uemail?: string;
+  
   constructor(private router: Router) {
     
     this.auth = getAuth(); // Ensure this.auth is initialized
-
+    
     // Handle authentication state changes
     this.initializeAuthState();
   }
+  
 
   private initializeAuthState(): void {
     onAuthStateChanged(this.auth, (user: User | null) => {
       if (user) {
         this.uid = user.uid;
-        console.log(`${user.email} is logged in`);
+        this.uemail = user.email || '';  // Convert null to empty string or handle as needed
+        console.log(`${this.uemail} is logged in`);
       } else {
         this.uid = undefined; 
+        this.uemail = undefined;  // Explicitly set to undefined when logged out
         console.log('User is logged out');
       }
     });
   }
-
+  
   registerUser(email: string, password: string): Promise<void> {
     return createUserWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => this.handleAuthSuccess(userCredential))
@@ -79,10 +83,15 @@ export class AuthService {
   }
 
   isUser(){
+    
   return  this.uid ? true : false 
   }
 
   getUid(){
     return this.uid
   }
+  getEmail(){
+    return this.uemail
+  }
+
 }

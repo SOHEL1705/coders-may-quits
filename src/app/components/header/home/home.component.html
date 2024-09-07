@@ -17,6 +17,22 @@
 
 <main>
   <section>
+@defer (when authService.isUser() ) {<div class="email-container">
+  <p class="email-text">
+    <span class="email-address">
+      {{ authService.getEmail() }}
+    </span>
+  </p>
+</div>} @placeholder {
+  <div class="email-container">
+    <p class="email-text">
+      <span class="email-address">
+        Login or register to create snippets
+      </span>
+    </p>
+  </div>
+}
+    
     @if(loading){
       <div class="loading-indicator">
         Loading, please wait...

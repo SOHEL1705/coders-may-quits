@@ -3,6 +3,30 @@ $main-color: tomato;
 
 main {
   section {
+    .email-container {
+      // Optional container styling
+      // padding: 16px;
+      // background-color: #f9f9f9;
+      border-radius: 4px;
+    }
+    
+    .email-text {
+      margin: 0;
+      padding: 0;
+    
+      .email-address {
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: #333;
+        font-family: 'Courier New', Courier, monospace; // Optional: coding font style
+        font-size: 1em;
+        white-space: nowrap; // Prevent text from wrapping
+      }
+    }
+    
     .loading-indicator {
       text-align: center;
       font-size: 18px;
